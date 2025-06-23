@@ -4,5 +4,20 @@ choices.forEach((choice) => {
 });
 
 function handleChoice(choice) {
-    console.log(choice);
+    console.log(computerChoice());
+}
+
+function computerChoice() {
+    switch(getRandomInt(3)) {
+        case 0:
+          return "Rock";
+        case 1:
+          return "Scissors";
+        case 2:
+          return "Paper";
+      } 
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
 }
