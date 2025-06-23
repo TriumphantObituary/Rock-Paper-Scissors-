@@ -19,9 +19,11 @@ function handleChoice() {
         const result = document.createElement("p");
         if (pChoice === "Scissors") {
             result.textContent = "Scissors beats Paper! Player wins the round!";
+            addpScore();
         }
         else {
             result.textContent = "Scissors beats Paper! Computer wins the round!";
+            addcmpScore();
         }
         result.classList.add("result");
         document.body.appendChild(result);
@@ -30,20 +32,24 @@ function handleChoice() {
         const result = document.createElement("p");
         if (pChoice === "Paper") {
             result.textContent = "Paper beats Rock! Player wins the round!";
+            addpScore();
         }
         else {
             result.textContent = "Paper beats Rock! Computer wins the round!";
+            addcmpScore();
         }
         result.classList.add("result");
         document.body.appendChild(result);
     }
     else if (pChoice === "Rock" && cmpChoice === "Scissors" || pChoice === "Scissors" && cmpChoice === "Rock") {
         const result = document.createElement("p");
-        if (pChoice === "Paper") {
+        if (pChoice === "Rock") {
             result.textContent = "Rock beats Scissors! Player wins the round!";
+            addpScore();
         }
         else {
             result.textContent = "Rock beats Scissors! Computer wins the round!";
+            addcmpScore();
         }
         result.classList.add("result");
         document.body.appendChild(result);
@@ -76,4 +82,14 @@ function clearResults() {
     results.forEach((result) => {
         result.remove();
     });
+}
+
+function addpScore() {
+    const pScore = document.querySelector("#pScore");
+    pScore.innerHTML++;
+}
+
+function addcmpScore() {
+    const cmpScore = document.querySelector("#cmpScore");
+    cmpScore.innerHTML++;
 }
