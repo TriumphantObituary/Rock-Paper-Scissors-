@@ -4,6 +4,7 @@ choices.forEach((choice) => {
 });
 
 function handleChoice() {
+    clearResults();
     const pChoice = this.innerHTML;
     const pResult = document.createElement("p");
     pResult.textContent = "Player chooses " + pChoice + "!";
@@ -68,4 +69,11 @@ function computerChoice() {
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
+}
+
+function clearResults() {
+    const results = document.querySelectorAll(".result");
+    results.forEach((result) => {
+        result.remove();
+    });
 }
